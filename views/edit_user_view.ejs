@@ -1,0 +1,49 @@
+<%- include("header"); %>
+
+<div id="edit-user-container" style="border: 2px solid green; padding: 20px; width: 1000px; margin: 2% auto; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h1 id="edit-user-title" style="text-align: center; color: #333; margin-bottom: 20px;">Edit User</h1>
+    <form action="/editUserSubmit" method="post">
+        <table id="edit-user-table" class="table table-bordered" style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td id="label-name" style="text-align: right; padding-right: 10px; font-weight: bold;">Name</td>
+                <td><input type="text" name="name" value="<%= userData.name %>" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" /></td>
+            </tr>
+            <tr>
+                <td id="label-email" style="text-align: right; padding-right: 10px; font-weight: bold;">Email</td>
+                <td><input type="email" name="email" value="<%= userData.email %>" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" /></td>
+            </tr>
+            <tr>
+                <td id="label-password" style="text-align: right; padding-right: 10px; font-weight: bold;">Password</td>
+                <td><input type="password" name="password" value="<%= userData.password %>" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" /></td>
+            </tr>
+            <tr>
+                <td id="label-userRole" style="text-align: right; padding-right: 10px; font-weight: bold;">User Role</td>
+                <td><input type="text" name="userRole" value="<%= userData.userRole %>" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" /></td>
+            </tr>
+            <tr>
+                <td id="label-phoneNumber" style="text-align: right; padding-right: 10px; font-weight: bold;">Phone Number</td>
+                <td><input type="text" name="phoneNumber" value="<%= userData.phoneNumber %>" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" /></td>
+            </tr>
+            <tr>
+                <td id="label-verified" style="text-align: right; padding-right: 10px; font-weight: bold;">Verified</td>
+                <td><input type="checkbox" name="verified" <%= userData.verified ? "checked" : "" %> style="margin-left: 10px;" /></td>
+            </tr>
+            <tr>
+                <td id="label-secretKey" style="text-align: right; padding-right: 10px; font-weight: bold;">Secret Key</td>
+                <td><input type="text" name="secretKey" value="<%= userData.secretKey %>" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" /></td>
+            </tr>
+            <tr>
+                <td id="label-history" style="text-align: right; padding-right: 10px; font-weight: bold;">History (comma separated)</td>
+                <td><input type="text" name="history" value="<%= userData.history.join(",") %>" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" /></td>
+            </tr>
+            <input type="hidden" name="userId" value="<%= userData._id %>" />
+            <tr>
+                <td colspan="2" id="submit-container" style="text-align: center; padding-top: 20px;">
+                    <input type="submit" value="Update User" id="submit-button" style="padding: 12px 30px; background-color: green; color: white; border: none; cursor: pointer; border-radius: 5px; font-size: 16px;" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<%- include("footer"); %>
